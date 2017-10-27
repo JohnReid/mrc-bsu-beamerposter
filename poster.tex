@@ -1,5 +1,6 @@
 \PassOptionsToPackage{rgb}{xcolor}
 \documentclass[final]{beamer}
+
 \beamertemplatenavigationsymbolsempty
 \usepackage[orientation=portrait, size=a0, scale=1]{beamerposter}
 \usepackage[absolute, overlay]{textpos}
@@ -8,6 +9,11 @@
 \setbeamertemplate{caption}[numbered]
 \usetheme{MRCBSU}
 \usefonttheme{default}
+
+%
+% Used to insert dummy text
+\usepackage[english]{babel}
+\usepackage{blindtext}
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -44,6 +50,7 @@
 \end{textblock}}
 % end
 
+
 \begin{document}
 \begin{frame}{}
 
@@ -65,32 +72,30 @@
 % arguments to colourblock are in the format: 
 % \begin{colourblock}{blockwidth}{top left distance from left}{top left distance from top}{colour of heading text}{heading text}
 \begin{colourblock}{0.315}{0.015}{0.2}{mrcblue}{Block 1}
-
-text goes here
+  \blindtext
 \end{colourblock}
 
-\begin{colourblock}{0.315}{0.015}{0.41}{mrcpurple}{BLock 2}
-text
+\begin{colourblock}{0.315}{0.015}{0.41}{mrcpurple}{Block 2}
+  \Blindtext
 \end{colourblock}
 
 \begin{colourblock}{0.315}{0.345}{0.2}{mrcorange}{Block 3}
-text
+  \blinditemize
 \end{colourblock}
 
 \begin{colourblock}{0.315}{0.345}{0.6}{mrcred}{Block 4}
-text
+  \blindenumerate
 \end{colourblock}
 
-\begin{colourblock}{0.315}{0.675}{0.2}{mrcblue}{block 5}
-text
+\begin{colourblock}{0.315}{0.675}{0.2}{mrcblue}{Block 5}
+  \blinddescription
 \end{colourblock}
 
 \begin{colourblock}{0.315}{0.675}{0.61}{mrcgray}{Block 6}
-
+  \blindtext
 \end{colourblock}
 
 \begin{colourblock}{0.315}{0.675}{0.85}{mrcblue}{References}
-
 \end{colourblock}
 
 \end{frame}
