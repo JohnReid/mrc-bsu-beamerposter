@@ -1,10 +1,7 @@
 \documentclass[t, final, 32pt]{beamer}
 
-
 %
 % Configure beamer
-\setbeamercolor{background canvas}{bg=mrclightblue}
-\setbeamertemplate{caption}[numbered]
 \usetheme{MRCBSU}
 \usefonttheme{default}
 \beamertemplatenavigationsymbolsempty
@@ -20,34 +17,23 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-%
-% Control indents
-\newlength\listindent
-\setlength\listindent{0pt}
-
 
 \begin{document}
 \begin{frame}{}
 
 %
 % Headers
-\begin{block}{}
-  %
-  % Figures
-  % \includegraphics[height=150pt]{BSU}
-  % \hfill
-  % \includegraphics[height=150pt]{UniCam}
+\begin{block}{
+  \vspace{48pt}
+
   \includegraphics[height=150pt]{MRC_Biostatistics_Cambridge}
-
-  %
-  % Line
-  \vspace{1.5cm}
-  \textcolor{lightgray}{\noindent\rule{\linewidth}{1pt}}
-  \vspace{0.5cm}
-
+}
   %
   % Title
+  \vspace{24pt}
+
   \fontsize{82pt}{82pt}\selectfont \textcolor{mrcblue}{\textbf{Title}}
+
   \vspace{24pt}
 
   %
@@ -71,50 +57,47 @@
 \setbeamerfont{block body}{size={\fontsize{32}{36}}}
 
 
-\begin{center}
 \begin{columns}[t]
-\begin{column}{.3\linewidth}
-
+\begin{column}{.31\linewidth}
 \begin{block}{Introduction}
+
   \blindtext
 \end{block}
-\vfill
 
 \begin{block}{Section 1}
+
   \blinditemize
 \end{block}
-
 \end{column}
 
 
-\begin{column}{.36\linewidth}
-
+\begin{column}{.31\linewidth}
 \begin{block}{Section 2}
+
   \blindtext
 \end{block}
-
 \end{column}
 
 
-\begin{column}{.3\linewidth}
-
+\begin{column}{.31\linewidth}
 \begin{block}{Discussion}
+
   \blindtext
 \end{block}
 
 \begin{block}{Acknowledgements}
+
+  My text
+
   \blinditemize
 \end{block}
 
 \begin{block}{References}
+
   \blinditemize
 \end{block}
-
 \end{column}
-
 \end{columns}
-\vfill
 
-\end{center}
 \end{frame}
 \end{document}
