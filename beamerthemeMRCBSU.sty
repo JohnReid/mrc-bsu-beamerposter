@@ -12,9 +12,6 @@
 \setbeamercolor{background canvas}{bg=mrclightblue}
 \setbeamercolor{boxtitles}{bg=white,fg=mrcblue}
 
-\setbeamercolor{block title}{fg=white}
-\setbeamerfont{block title}{size=\huge}
-
 \setbeamercolor{section}{fg=mrcorange}
 \setbeamerfont{caption}{shape=\itshape,size=\normalsize}
 \setbeamerfont{caption name}{shape=\itshape}
@@ -30,7 +27,39 @@
 
 \setbeamertemplate{caption}[numbered]
 
-\addtobeamertemplate{block begin}{\vskip \smallskipamount}{\textcolor{lightgray}{\noindent\rule{\linewidth}{1pt}} \vspace{-24pt}}
+\setbeamerfont{block title}{size={\fontsize{48}{54}}}
+\setbeamerfont{block body}{size={\fontsize{32}{36}}}
+
+%
+% This fixes uneven block widths: see
+% https://tex.stackexchange.com/questions/282920/block-title-and-body-misaligned
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=2mm]{block title}
+    \usebeamerfont*{block title}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=2mm,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
+%
+% Add spacing and rules to blocks
+\addtobeamertemplate{block begin}{
+  \vskip \smallskipamount
+}{
+  \vspace{-12pt}
+
+  \textcolor{lightgray}{\noindent\rule{\linewidth}{1pt}}
+
+  \vspace{6pt}
+
+}
 \addtobeamertemplate{block end}{}{\vskip \bigskipamount}
 
 \mode

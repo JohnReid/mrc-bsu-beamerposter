@@ -1,0 +1,34 @@
+\documentclass{beamer}
+
+%\beamertemplatenavigationsymbolsempty
+\setbeamercolor{background canvas}{bg=lightgray}
+\setbeamercolor{boxtitles}{bg=white}
+\setbeamercolor{block title}{bg=white, fg=blue}
+\setbeamercolor{block body}{bg=white, fg=black}
+\setbeamerfont{block body}{size={\fontsize{12}{14}}}   % Including this line breaks the width
+
+%
+% This fixes uneven block widths: see
+% https://tex.stackexchange.com/questions/282920/block-title-and-body-misaligned
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=2mm]{block title}
+    \usebeamerfont*{block title}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=2mm,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
+\begin{document}
+\begin{frame}{}
+\begin{block}{Block title}
+  Block body text
+\end{block}
+\end{frame}
+\end{document}
