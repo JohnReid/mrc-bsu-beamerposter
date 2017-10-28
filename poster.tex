@@ -1,102 +1,120 @@
-\PassOptionsToPackage{rgb}{xcolor}
-\documentclass[final]{beamer}
+\documentclass[t, final, 32pt]{beamer}
 
-\beamertemplatenavigationsymbolsempty
-\usepackage[orientation=portrait, size=a0, scale=1]{beamerposter}
-\usepackage[absolute, overlay]{textpos}
-\TPGrid{1}{1}
 
+%
+% Configure beamer
+\setbeamercolor{background canvas}{bg=mrclightblue}
 \setbeamertemplate{caption}[numbered]
 \usetheme{MRCBSU}
 \usefonttheme{default}
+\beamertemplatenavigationsymbolsempty
+\usepackage[orientation=portrait, size=a0, scale=1]{beamerposter}
 
 %
-% Used to insert dummy text
+% blindtext used to insert dummy text
 \usepackage[english]{babel}
 \usepackage{blindtext}
 
+%
+% As close to Arial as we can easily get
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
+%
+% Control indents
 \newlength\listindent
 \setlength\listindent{0pt}
-
-\usepackage{setspace, tikz, tcolorbox, adjustbox, subfig}
-\setstretch{1.1}
-\usetikzlibrary{positioning,arrows,shapes,calc,petri,matrix,topaths,backgrounds,decorations.pathmorphing,fit,decorations.pathreplacing}
-\tcbuselibrary{skins}
-
-% White blocks for the poster:
-% Arguments:
-% 1. width
-% 2. x-coordinate of top left
-% 3. y-coordinate of top left
-% 4. Text colour of heading
-% 5. Content of heading
-\newenvironment{colourblock}[5]{%
-  \begin{textblock}{#1}(#2,#3)
-  \begin{beamercolorbox}[sep=1cm]{boxtitles}
-  \vspace{-0.75cm}
-
-\fontsize{1.85cm}{2.45cm}\selectfont\textcolor{#4}{\textbf{#5}}
-
-  \vspace{0.75cm}
-      \end{beamercolorbox}
-  \begin{tcolorbox}[enhanced,colframe=mrclightblue,colback=white,boxsep=0cm,right=0.1cm,left=0.1cm,top=1cm,bottom=0.5cm,boxrule=0pt,toprule=0pt,bottomrule=2pt,leftrule=-0.5pt,rightrule=-0.5pt,arc=0pt]
-      \centering\noindent%
-   \begin{minipage}{\dimexpr\textwidth-2cm}
-  }{\end{minipage}\vspace*{0.5cm}
-    \end{tcolorbox}
-\end{textblock}}
-% end
 
 
 \begin{document}
 \begin{frame}{}
 
-% Heading block
-\begin{textblock}{0.91}(0.045, 0.039)
-\includegraphics[width=0.575\linewidth]{MRC_Biostatistics_Cambridge}
+%
+% Headers
+\begin{block}{}
+  %
+  % Figures
+  % \includegraphics[height=150pt]{BSU}
+  % \hfill
+  % \includegraphics[height=150pt]{UniCam}
+  \includegraphics[height=150pt]{MRC_Biostatistics_Cambridge}
 
-\vspace{1.5cm}
-\noindent\rule{\linewidth}{1pt}
-\vspace{0.5cm}
+  %
+  % Line
+  \vspace{1.5cm}
+  \textcolor{lightgray}{\noindent\rule{\linewidth}{1pt}}
+  \vspace{0.5cm}
 
-\fontsize{3cm}{3cm}\selectfont \textcolor{mrcblue}{\textbf{Title}}
+  %
+  % Title
+  \fontsize{82pt}{82pt}\selectfont \textcolor{mrcblue}{\textbf{Title}}
+  \vspace{24pt}
 
-\vspace{0.6cm}
-\fontsize{1.25cm}{1.7cm}\selectfont \textcolor{mrcblue}{Robert J. B. Goudie, Anne M. Presanis, David Lunn, Daniela De Angelis and Lorenz Wernisch}
-\end{textblock}
+  %
+  % Authors
+  \fontsize{36pt}{36pt}\selectfont
+  \textcolor{mrcblue}{
+    John Reid
+    \hspace{30pt}
+    MRC Biostatistics Unit,
+    Cambridge Biomedical Campus,
+    Cambridge, CB2 0SR,
+    United Kingdom}
+\end{block}
 
-% Block 1
-% arguments to colourblock are in the format: 
-% \begin{colourblock}{blockwidth}{top left distance from left}{top left distance from top}{colour of heading text}{heading text}
-\begin{colourblock}{0.315}{0.015}{0.2}{mrcblue}{Block 1}
+
+%
+% Change block colours and font sizes...
+\setbeamercolor{block title}{bg=white, fg=mrcblue}
+\setbeamercolor{block body}{bg=white, fg=black}
+\setbeamerfont{block title}{size={\fontsize{48}{54}}}
+\setbeamerfont{block body}{size={\fontsize{32}{36}}}
+
+
+\begin{center}
+\begin{columns}[t]
+\begin{column}{.3\linewidth}
+
+\begin{block}{Introduction}
   \blindtext
-\end{colourblock}
+\end{block}
+\vfill
 
-\begin{colourblock}{0.315}{0.015}{0.41}{mrcpurple}{Block 2}
-  \Blindtext
-\end{colourblock}
-
-\begin{colourblock}{0.315}{0.345}{0.2}{mrcorange}{Block 3}
+\begin{block}{Section 1}
   \blinditemize
-\end{colourblock}
+\end{block}
 
-\begin{colourblock}{0.315}{0.345}{0.6}{mrcred}{Block 4}
-  \blindenumerate
-\end{colourblock}
+\end{column}
 
-\begin{colourblock}{0.315}{0.675}{0.2}{mrcblue}{Block 5}
-  \blinddescription
-\end{colourblock}
 
-\begin{colourblock}{0.315}{0.675}{0.61}{mrcgray}{Block 6}
+\begin{column}{.36\linewidth}
+
+\begin{block}{Section 2}
   \blindtext
-\end{colourblock}
+\end{block}
 
-\begin{colourblock}{0.315}{0.675}{0.85}{mrcblue}{References}
-\end{colourblock}
+\end{column}
 
+
+\begin{column}{.3\linewidth}
+
+\begin{block}{Discussion}
+  \blindtext
+\end{block}
+
+\begin{block}{Acknowledgements}
+  \blinditemize
+\end{block}
+
+\begin{block}{References}
+  \blinditemize
+\end{block}
+
+\end{column}
+
+\end{columns}
+\vfill
+
+\end{center}
 \end{frame}
 \end{document}
